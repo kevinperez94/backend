@@ -4,7 +4,7 @@ import jakarta.validation.constraints.NotBlank;
 
 public class dtoEducacion {
 
-    @NotBlank
+     @NotBlank
     private String nombreE;
     @NotBlank
     private String descripcionE;

@@ -1,4 +1,3 @@
-
 package com.portfolio.kevinperez.Security.Service;
 
 import com.portfolio.kevinperez.Security.Entity.Rol;
@@ -12,14 +11,15 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional
 public class RolService {
+
     @Autowired
     iRolRepository irolRepository;
-    
-    public Optional<Rol> getByRolNombre(RolNombre rolNombre){
-        return irolRepository.findByRolNonmbre(rolNombre);
+
+    public Optional<Rol> getByRolNombre(RolNombre rolNombre) {
+        return irolRepository.findByRolNombre(rolNombre);
     }
-    
-    public void save(Rol rol){
+
+    public void save(Rol rol) {
         irolRepository.save(rol);
     }
 }

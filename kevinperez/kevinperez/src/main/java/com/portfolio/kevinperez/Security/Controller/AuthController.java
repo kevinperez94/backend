@@ -51,11 +51,11 @@ public class AuthController {
         }
 
         if (usuarioService.existsByNombreUsuario(nuevoUsuario.getNombreUsuario())) {
-            return new ResponseEntity(new Mensaje("Este nombre de usuario ya existe"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("Ese nombre de usuario ya existe"), HttpStatus.BAD_REQUEST);
         }
 
         if (usuarioService.existsByEmail(nuevoUsuario.getEmail())) {
-            return new ResponseEntity(new Mensaje("Este email ya existe"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("Ese email ya existe"), HttpStatus.BAD_REQUEST);
         }
 
         Usuario usuario = new Usuario(nuevoUsuario.getNombre(), nuevoUsuario.getNombreUsuario(),
@@ -70,7 +70,7 @@ public class AuthController {
         usuario.setRoles(roles);
         usuarioService.save(usuario);
 
-        return new ResponseEntity(new Mensaje(""), HttpStatus.CREATED);
+        return new ResponseEntity(new Mensaje("Usuario guardado"), HttpStatus.CREATED);
     }
 
     @PostMapping("/login")
@@ -92,4 +92,5 @@ public class AuthController {
 
         return new ResponseEntity(jwtDto, HttpStatus.OK);
     }
+
 }
